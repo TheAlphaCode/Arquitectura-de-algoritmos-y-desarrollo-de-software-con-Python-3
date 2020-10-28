@@ -1,0 +1,90 @@
+""" Inicio del programa Gestor de Pedidos """
+valor = 0
+precios = { #Inicio lista de precios-------------------    
+    'sopas' : 10000,
+    'ensaladas' : 25000,
+    'pollo' : 28000,
+    'carne' : 29000,
+    'cerdo' : 30000,
+    'hotdogs' : 4500,
+    'hamburguesas' : 7800
+} # Fin lista de precios--------------
+
+iva = float(input('Ingrese el valor del IVA: '))
+print ('Gestor de pedidos restaurante: x')
+print ('\t1.- Menu Vegetariano')
+print ('\t2.- Menu no Vegetariano')
+print ('\t3.- Fast Food')
+
+opcion_menu = int(input('\n Por favor digite una de las opciones del menu: '))
+
+if(opcion_menu == 1): # Gestion del menu 1 Vegetariano
+    print('1. Sopa de tomate')
+    print('2. Ensalada mixta')
+    
+    opcion_submenu = int(input('\n Por favor digite una de las opciones del menu Vegetariano: '))  
+    while opcion_submenu<1 or opcion_submenu>2: #validacion de que el usuario digite la opcion del menu correcta
+        print('Opcion invalida digite nuevamente: ')
+        opcion_submenu = int(input (': '))
+        if opcion_submenu<1 or opcion_submenu>2:
+            print('Valor incorrecto.')
+            
+    n = int(input('cuantas comidas desea comprar: '))
+    if(opcion_submenu  == 1):
+        valor =  n * precios['sopas']
+    elif(opcion_submenu == 2):
+        valor = n * precios['ensaladas']
+    valor = valor - 0.2 * valor # calcula el descuento con el 20%
+    valor = valor + (valor * iva/100) # calcula el monto o valor final a pagar, por el cliente.
+    print('El monto a pagar es: {}'.format(valor))
+""" Intermedio del programa Gestor de Pedidos """
+
+""" Continuacion del programa Gestor de Pedidos... """    
+elif(opcion_menu == 2): # Gestion del menu 2 no Vegetariano
+    print('1. Pollo')
+    print('2. Carne')
+    print('3. Cerdo')
+    
+    opcion_submenu = int(input('\n Por favor digite una de las opciones del menu no Vegetariano: '))
+     
+    while opcion_submenu<1 or opcion_submenu>3: #validacion de que el usuario digite la opcion del menu correcta
+        print('Opcion invalida digite nuevamente: ')
+        opcion_submenu = int(input (': '))
+        if opcion_submenu<1 or opcion_submenu>3:
+            print('Valor incorrecto.')
+    
+    n = int(input('cuantas comidas desea comprar: '))
+    if(opcion_submenu == 1):
+        valor = n * precios['pollo']
+    elif(opcion_submenu == 2):
+        valor = n * precios['carne']
+    elif(opcion_submenu == 3):
+        valor = n * precios['cerdo']
+    
+    valor = valor - 0.1 * valor # Calcula el descuento con el 10%
+    valor = valor + (valor * iva/100)  # calcula el monto o valor final a pagar, por el cliente.
+    print('El monto a pagar es: {}'.format(valor))
+        
+elif(opcion_menu == 3): # Gestion del menu 3 Fast food
+    print('1. Hot Dogs')
+    print('2. Hamburguesa')
+    
+    opcion_submenu = int(input('\n Por favor digite una de las opciones del menu Fast Food: '))  
+    while opcion_submenu<1 or opcion_submenu>2: #validacion de que el usuario digite la opcion del menu correcta
+        print('Opcion invalida digite nuevamente: ')
+        opcion_submenu = int(input (': '))
+        if opcion_submenu<1 or opcion_submenu>2:
+            print('Valor incorrecto.')
+            
+    n = int(input('cuantas comidas desea comprar: '))
+    if(opcion_submenu  == 1):
+        valor =  n * precios['hotdogs']
+    elif(opcion_submenu == 2):
+        valor = n * precios['hamburguesas']
+    valor = valor - 0.05 * valor # calcula el descuento con el 20%
+    valor = valor + (valor * iva/100) # calcula el monto o valor final a pagar, por el cliente.
+    print('El monto a pagar es: {}'.format(valor))
+    
+else:
+    print('Opcion Invalida intente nuevamente')
+"""Fin del Programa  Gestor de Pedidos"""
