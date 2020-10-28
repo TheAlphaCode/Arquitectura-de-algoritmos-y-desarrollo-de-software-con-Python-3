@@ -1,0 +1,39 @@
+#Code for version 19.1
+i, j = 0,0
+
+while(i != 3 and j != 3):
+    a = int(input('Valor de la carta del Player 1: '))
+    b = int(input('Valor de la carta del Player 2: '))
+    
+    if(a > b):
+        i +=1
+    elif(b > a):
+        j +=1
+        
+if(i == 3):
+    print('\nFelicidades el Player 1 ha ganado!!!')
+elif(j == 3):
+    print('\nFelicidades el Player 2 ha ganado!!!')
+#End of the code for version 19.1    
+    
+ 
+ 
+#Code for version 19.2 
+import getpass # libreria que no permite observar el valor que ingresamos por consola
+
+i, j = 0,0
+
+while(i != 3 and j != 3): #Ciclo de control
+    score_1 = getpass.getpass('Valor de la carta del Player 1: ')
+    score_2 = getpass.getpass('Valor de la carta del Player 2: ')
+    # Condicionales para determinar y almacenar ganador por ronda
+    if(score_1 > score_2):
+        i +=1
+    elif(score_2 > score_1):
+        j +=1
+        
+if(i == 3):
+    print('\nFelicidades Player 1 ha ganado!!!')   
+elif(j == 3):
+    print('\nFelicidades Player 2 ha ganado!!!')
+#End of the code for version 19.2    
