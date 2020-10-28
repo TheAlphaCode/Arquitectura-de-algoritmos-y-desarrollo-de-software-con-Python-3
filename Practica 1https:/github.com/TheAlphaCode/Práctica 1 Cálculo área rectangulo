@@ -1,0 +1,6 @@
+b = int(input("\nIntroduce el valor de la base "))
+h = int(input("Introduce el valor de la altura "))
+
+A = (b*h)
+
+print("El Area del rectangulo es: {} cm".format(A))
