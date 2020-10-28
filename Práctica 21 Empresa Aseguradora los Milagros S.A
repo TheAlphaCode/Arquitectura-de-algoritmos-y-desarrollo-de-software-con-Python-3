@@ -1,0 +1,70 @@
+#Variables
+personas_aseguradas = float (input ('Ingrese la cantidad de personas aseguradas: '))
+tipo_seguro = 0
+max_personas=0
+pago_mensual=0
+monto_anual = 0
+print ('Seleccione el valor de tipo de seguro.') #Menu Opciones
+print ('\t1.- Alfa')
+print ('\t2.- Beta')
+print ('\t3.- Sigma')
+print ('\t4.- Delta')
+
+# Ciclo while que condiciona al usuario a ingresar siempre un valor contenido entre el 1 y 4 [1,4]
+while tipo_seguro < 1 or tipo_seguro > 4:
+    tipo_seguro = int (input (': '))
+    if tipo_seguro < 1 or tipo_seguro > 4:
+        print('Valor incorrecto. Intente nuevamente.')
+        
+"""Inicio de condicionales de control para determinar tipo de plan, servicios y monto"""
+if tipo_seguro == 1:
+    max_personas = 4 # Cantidad maxima por tipo de seguro
+    pago_mensual = 57 #Monto de servicios
+    servicios_alfa = ['Optometrista', 'Odontológico', 'Pediatría', 'Psiquiatría', 
+                      'Gastroenterología', 'Dermatología', 'Cardiología', 'Medicina general'] #Lista de servicios
+elif tipo_seguro == 2:
+    max_personas = 3
+    pago_mensual = 45
+    servicios_beta = ['Optometrista', 'Odontológico', 'Pediatría', 'Psiquiatría', 
+                      'Dermatología', 'Cardiología', 'Medicina general']
+elif tipo_seguro == 3:
+    max_personas = 2
+    pago_mensual = 35
+    servicios_sigma = ['Optometrista', 'Odontológico','Psiquiatría', 
+                      'Dermatología', 'Cardiología', 'Medicina general']
+elif tipo_seguro == 4:
+    max_personas = 1
+    pago_mensual = 27
+    servicios_delta = ['Optometrista', 'Odontológico', 
+                      'Dermatología', 'Medicina general']
+"""Fin de condicionales de control para determinar tipo de plan, servicios y monto"""
+# Calculo de pago anual   
+monto_anual = pago_mensual * 12
+# Calculo pago anual con persona extra en tipo de seguro 1 y 2   
+if personas_aseguradas > max_personas and (tipo_seguro == 1 or tipo_seguro==2):
+    pago_mensual = pago_mensual + (personas_aseguradas - max_personas) * 10
+    monto_anual = pago_mensual * 12
+# Calculo pago anual con persona extra en tipo de seguro 3 y 4   
+if personas_aseguradas > max_personas and (tipo_seguro == 3 or tipo_seguro == 4):
+    pago_mensual = pago_mensual + (personas_aseguradas - max_personas) * 6
+    monto_anual = pago_mensual * 12
+    
+print ('Valor maximo de asegurados: {}'.format(max_personas))
+print ('Valor a pagar anual: {}'.format(monto_anual))
+print ('Valor del pago mensual: {}'.format(pago_mensual))
+if tipo_seguro == 1:
+    print('\nServicios cuales cubre el seguro Alfa son los siguientes: ')
+    for servicio in servicios_alfa: # Ciclo for que recorre la lista de los servicios
+        print(servicio)
+elif tipo_seguro == 2:
+    print('\nServicios cuales cubre el seguro Beta son los siguientes: ')
+    for servicio in servicios_beta:
+        print(servicio)
+elif tipo_seguro == 3:
+    print('\nServicios cuales cubre el seguro Sigma son los siguientes: ')
+    for servicio in servicios_sigma:
+        print(servicio)
+elif tipo_seguro == 4:
+    print('\nServicios cuales cubre el seguro Delta son los siguientes: ')
+    for servicio in servicios_delta:
+        print(servicio)
