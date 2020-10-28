@@ -1,0 +1,17 @@
+Pi = 3.1416 # valor constante Pi
+Rma = float(input('Ingrese el valor del Radio mayor: ')) #Radio mayor
+rme = float(input('Ingrese el valor del Radio menor: ')) #Radio menor
+g = int(input('Ingrese el valor de la amplitud en grados: ')) #Grados
+
+def calculo_area_trapecio_circular(Pi,Rma,rme,g):
+   
+    """formula para el calculo del
+        area correspondiente al trapecio circular"""
+    
+    return Pi*(Rma*Rma-rme*rme)*g/360
+
+Area = calculo_area_trapecio_circular(Pi,Rma,rme,g)
+
+print('Para un trapecio de radio mayor: {} y de radio menor igual a: {}'.format(Rma,rme))
+print('Con una amplitud en grados = {}'.format(g))
+print('\nEl area del trapecio circular es igual a = {}'.format(Area))
