@@ -1,0 +1,44 @@
+nombre, edad = input('Ingrese nombre: '), int(input ('Ingrese edad: ')) # Variables
+
+class Contratacion:    
+    
+    def __init__(self, nombre, edad): # Constructor 
+        self.edad = edad
+        self.nombre = nombre
+
+    def gestor_contratacion(self): # Metodo de la clase contratacion 
+        empleos_encontrados, sexo, estudios_cursados = 0, 0, 0 # Variables
+        print ('Seleccione el valor de sexo.')
+        print ('\t1.- mujer')
+        print ('\t2.- varon')
+        while sexo<1 or sexo>2:
+            sexo = int(input (': '))
+            if sexo<1 or sexo>2:
+                print('Valor incorrecto. Intente nuevamente.')
+        print ('Seleccione nivel de estudio: ')
+        print ('\t1.- Primaria')
+        print ('\t2.- Secundaria')
+        print ('\t3.- Universitario')
+        print ('\t4.- Posgrado')        
+        while estudios_cursados<1 or estudios_cursados>5:
+            estudios_cursados = int (input (': '))
+            if estudios_cursados<1 or estudios_cursados>4:
+                print('Valor incorrecto. Ingr\u00E9selo nuevamente.')
+        if (sexo == 2) and (estudios_cursados == 4) and (edad >= 30 and edad <= 60): #Condicional determinante
+            print ('Oferta laboral encontrada! podras ser: Decano Universitario')
+            empleos_encontrados +=1
+        if (sexo == 1) and (estudios_cursados >= 2) and (edad >= 18 and edad <= 60): #Condicional determinante
+            print ('Oferta laboral encontrada! podras ser: Gerente administrativo')
+            empleos_encontrados +=1
+        if (estudios_cursados >= 2) and (edad > 18): #Condicional determinante
+            print ('Oferta laboral encontrada! podras ser: Docente auxiliar')
+            empleos_encontrados += 1
+        if empleos_encontrados == 0:
+            print ('No se encontraron empleos disponibles, vuelva a consultar en unos dias.')
+            print ('Saludos.')
+            print ('Equipo de RRHH')
+        print ('Nombre: {}'.format(nombre))
+        print ('Cantidad de empleos disponibles: {}'.format(empleos_encontrados))        
+# Objeto de la clase Contratacion 
+aplicante_1 = Contratacion(nombre, edad)
+aplicante_1.gestor_contratacion()
