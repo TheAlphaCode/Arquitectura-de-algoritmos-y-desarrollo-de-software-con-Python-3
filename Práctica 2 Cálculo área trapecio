@@ -1,0 +1,6 @@
+print("Programa Calculo área de un Trapecio")
+B = (float(input('\nIngrese el valor de la Base Mayor ')))
+b = (float(input('Ingrese el valor de la Base Menor ')))
+h = (float(input('Ingrese el valor de la Altura ')))
+AT = ((B+b)/2)*h
+print('El área del Trapeio calculada es: {} cm'.format(AT))
