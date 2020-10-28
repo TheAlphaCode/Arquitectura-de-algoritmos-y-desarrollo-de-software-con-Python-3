@@ -1,0 +1,17 @@
+fx = 0.0
+x = (float(input('Ingrese el valor de x: ')))
+
+#condicionales que clasifican f(x) en los intervalos definidos
+if((x >= 0) and (x <= 4)):
+    #calcula fx para el intervalo [0,4]
+    fx = (x * x)
+elif((x > 4) and (x <= 6)):
+    #calcula fx para el intervalo (4,6]
+    fx = ((-x) * x +6)
+elif(x > 6):
+    #calcula fx para el intervalo (6,+∞)
+    fx = (x + 6)
+else:
+    print('\nlo sentimos el valor para el calculo de fx: {} es negativo intente nuevamente'.format(x))
+    
+print('\nEl valor de la funcion f(x) es igual a: {}'.format(fx))
