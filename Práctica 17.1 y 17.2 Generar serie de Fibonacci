@@ -1,0 +1,68 @@
+#Code version 17.1
+n = int(input('Valor de la serie de Fibonacci: '))
+
+while n < 0:
+    print('El numero ingresado no es un entero positivo, intente nuevamente.')
+    n = int(input('\nIngrese un nuevo valor de la serie de Fibonacci: '))
+
+primer_termino = 1
+segundo_termino = 2
+suma = primer_termino + segundo_termino
+if(n == 1):
+    print('----- Sucesion de Fibonacci ------')
+    print('Termino 1: {}'.format(primer_termino))
+    suma = primer_termino
+else:
+    print('----- Sucesion de Fibonacci ------')
+    print('Termino 1: {}'.format(primer_termino))
+    print('Termino 2: {}'.format(segundo_termino))
+    
+    for i in range(3,n+1):
+        tercer_termino = primer_termino + segundo_termino
+        suma = suma + tercer_termino
+        print('Termino '+str(i)+': {}'.format(tercer_termino))
+        primer_termino = segundo_termino
+        segundo_termino = tercer_termino
+
+print('Suma total de la serie de Fibonacci: {}'.format(suma))
+#End of the code for version 17.1
+
+
+#Code for version 17.2
+n = int(input('Digite el valor de la serie de Fibonacci: '))
+""" Inicio funcion de Fibonacci """
+def numeros_fibonacci(n):
+    preant = 1
+    ant = 2
+    suma = 0
+    if(n==1):
+        print(preant)
+        suma = preant
+        print('Suma total de la serie de Fibonacci: {}'.format(suma))
+    elif(n==2):
+        print(str(1))
+        print(preant)
+        suma = 1 + preant
+        print('Suma total de la serie de Fibonacci: {}'.format(suma))
+    elif(n==3):
+        print(str(1))
+        print(preant)
+        print(ant)
+        suma = 1 + preant + ant
+        print('Suma total de la serie de Fibonacci: {}'.format(suma))   
+    else:
+        print(str(1))
+        print(preant)
+        print(ant)
+        suma = 1 + preant + ant
+        for i in range(4,n+1): # Ciclo de control de la serie
+            sig = ant + preant
+            suma = suma + sig
+            print(sig)
+            preant = ant
+            ant = sig
+        print('Suma total de la serie de Fibonacci: {}'.format(suma))                
+""" Fin de la funcion de Fibonacci """
+                
+fibo1 = numeros_fibonacci(n) # Objeto realiza llamada a la funcion de Fibonacci
+#End of the code for version 17.2
