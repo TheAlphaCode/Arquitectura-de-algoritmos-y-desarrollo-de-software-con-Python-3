@@ -1,0 +1,75 @@
+"""Inicio del programa Sistema cajero automatico """
+import getpass # libreria que no nos permite observar el valor que ingresamos por consola, simulando un cajero
+
+def menuCajero():
+    print("----------- Simulador Cajero electrónico -----------")
+    print("Opciones Bancarias")
+    print("\t1.- Cambio de clave")
+    print("\t2.- Deposito")
+    print("\t3.- Retiros")
+    print("\t4.- Transferencia")
+    print("---- Por favor, digite una de las opciones ----------")
+    
+menuCajero() # metodo que permite llamar al menu de opciones
+
+# Variables
+op = int(input('Ingrese la operacion a realizar: '))
+saldo = 2000
+
+if(op == 1 or op== 2 or op ==3 or op==4): # Verifica si la opcion ingresada es valida para ingresar
+    clave = getpass.getpass('Por favor ingrese su clave: ')
+    validacion = getpass.getpass('Por favor ingrese su clave actual: ')
+    
+    if(clave == validacion): # controla si la clave ingresada es igual a la validacion para poder ingresar al sistema
+        
+        if(op == 1):
+            nuevaClave = input('Digite su nueva clave: ')
+            clave = nuevaClave # salva la nueva clave
+            
+        elif(op == 2):
+            deposito = float(input('Realice un deposito: '+ '$'))
+            saldo = saldo + deposito
+            print('El saldo de su cuenta es: {}'.format(saldo)) 
+""" Intermedio del programa  Sistema cajero automativo """
+
+""" Continuacion del programa Sistema cajero automativo... """          
+        elif(op == 3):
+            print("---------- Opciones de retiro -----------")
+            print("\t1.- 500 $")
+            print("\t2.- 1.000 $")
+            print("\t3.- Otra cantidad")
+            op2 = int(input('Digite su opcion de retiro: '))        
+            if(op2 == 1):
+                saldo = saldo - 500
+                print('Para un retiro de: 500')
+                print('El saldo actual de su cuenta es: {}'.format(saldo)) 
+
+            elif(op2 == 2):
+                saldo = saldo - 1000
+                print('Para un retiro de: 1000')
+                print('El saldo actual de su cuenta es: {}'.format(saldo))  
+                
+            elif(op2 == 3):
+                retiro_dif = float(input('Ingrese otra cantidad a retirar: '))
+                saldo = saldo - retiro_dif
+                print('El saldo actual de su cuenta es: {}'.format(saldo))             
+            else:
+                print('Opción invalidad intente nuevamente')  
+                
+        elif(op == 4):
+            numero_cuenta = int(input('Ingrese el numero de cuenta a depositar: '))
+            monto_transferencia = float(input('Digite el valor a transferir: '))
+            saldo = saldo - monto_transferencia            
+            if(saldo < 0):
+                print('Error transacción no realizada, el valor a transferir supera el monto de su cuenta.')
+            else:
+                print('\n La transferencia a la cuenta: {}, fue realizada con exito'.format(numero_cuenta))
+                print('\n El saldo actual de su cuenta es: {}'.format(saldo))        
+        else:
+            print('Opción Invalida intente nuevamente')               
+    else:
+        print('Clave invalida intente de nuevo')
+else:
+    print('Opción Invalida intente nuevamente')
+    
+"""Fin del programa Sistema cajero automatico """
