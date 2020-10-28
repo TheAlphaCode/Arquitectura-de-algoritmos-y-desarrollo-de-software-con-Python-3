@@ -1,0 +1,4 @@
+Pi = 3.1416
+r = float(input('Ingresar el radio de la circunferencia '))
+L = (2*Pi)*r
+print('La longitud de la circunferencia es igual a: {}'.format(L))
