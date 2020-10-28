@@ -1,0 +1,35 @@
+minutos = float (input ('Ingrese el valor de minutos: '))
+print ('Seleccione el valor de tipo de llamada.')
+print ('\t1.- Local')
+print ('\t2.- Nacional')
+print ('\t3.- Internacional')
+tipo_llamada = 0
+#Ciclo while que condiciona al usuario a ingresar siempre un valor contenido entre el 1 y 3 [1,3]
+while tipo_llamada < 1 or tipo_llamada>3:
+    tipo_llamada = int (input (': '))
+    if tipo_llamada < 1 or tipo_llamada > 3:
+        print('Valor incorrecto. Intente nuevamente.')        
+descuento, costos_x_minuto = 0, 0
+#Condicionales para determinar el costo por minuto de la llamada
+if tipo_llamada == 1:
+    costos_x_minuto = 1
+elif tipo_llamada == 2:
+    costos_x_minuto = 2.5
+elif tipo_llamada == 3:
+    costos_x_minuto = 4 
+#Calculo costo de llamada    
+costo_llamada = costos_x_minuto * minutos
+# Condicionales para calculo del descuento
+if tipo_llamada == 1:
+    descuento = str('Lo sentimos para llamadas locales no procede descuento.')
+elif tipo_llamada == 2 and minutos > 15:
+    descuento = costo_llamada * 0.15
+elif tipo_llamada == 3 and minutos > 20:
+    descuento = costo_llamada * 0.25
+#Calculo final del monto total a pagar por la llamada
+if tipo_llamada == 2 or tipo_llamada == 3:
+    total_llamada = costo_llamada - descuento
+print ('\nValor de costo de la llamada: {}'.format(costo_llamada))
+print ('Valor de costos por minuto: {}'.format(costos_x_minuto))
+print ('Valor de descuento obtenido: {}'.format(descuento))
+print ('Valor de total: {}'.format(total_llamada))
