@@ -1,0 +1,160 @@
+# Code for version 12.1
+import numpy as np
+r = 0.0
+print ('Calculadora.')
+print ('\t1.- Suma')
+print ('\t2.- Resta')
+print ('\t3.- Multiplicación')
+print ('\t4.- División')
+print ('\t5.- Exponenciación')
+print ('\t6.- Seno')
+print ('\t7.- Coseno')
+print ('\t8.- Tangente')
+print('Digite una operación')
+op = int(input('Operación escogida: '))
+if(op == 6 or op == 7 or op == 8 ):
+    x = float(input('Ingrese valor en grado para el argumento de entrada de la función: '))
+else:
+    valor_1 = float(input('Ingrese el primer valor: ')) 
+    valor_2 = float(input('Ingrese el segundo valor: '))
+if(op == 1):
+    r = valor_1 + valor_2
+    print('\nEl resultado de la suma es: {}'.format(r))
+elif(op == 2):
+    r = valor_1 - valor_2
+    print('\nEl resultado de la resta es: {}'.format(r))
+elif(op == 3):
+    r = valor_1 * valor_2
+    print('\nEl resultado de la multiplicación es: {}'.format(r))
+elif(op == 4):
+    if(valor_2 == 0):
+        print('\nError División por cero, indeterminación, intente nuevamente')
+    else:
+        r = valor_1/valor_2
+    print('\nEl resultado de la división es: {}'.format(r))
+elif(op == 5):
+    r = (valor_1**valor_2)
+    print('\nEl resultado de la operacion es: {}'.format(r))
+elif(op == 6):
+    r = np.sin(x)
+    print('\nEl valor de la función seno({}) es igual a: {}'.format(x,r))
+elif(op == 7):
+    r = np.cos(x)
+    print('\nEl valor de la funcion coseno({}) es igual a: {}'.format(x,r))
+elif(op == 8):
+    r = np.tan(x)
+    print('\nEl valor de la funcion tangente({}) es igual a: {}'.format(x,r))
+#end of code for version 12.1
+
+
+#Code for version 12.2
+import numpy as np
+#Operaciones Aritmeticas--------------------
+def suma(valor_1, valor_2):
+    return valor_1 + valor_2
+def resta(valor_1, valor_2):
+    return valor_1 - valor_2
+def multiplicacion(valor_1, valor_2):
+    return valor_1 * valor_2
+def division(valor_1, valor_2):
+    if valor_2 == 0:
+        return "Error: Division entre cero..."
+    else:
+        return valor_1 / valor_2
+def exponenciacion(valor_1,valor_2):
+    return valor_1**valor_2
+#Operaciones Trigonometricas---------------
+def seno(x):
+    return np.sin(x)
+def coseno(x):
+    return np.cos(x)
+def tangente(x):
+    return np.tan(x)
+def default():
+     return "Opcion Invalida"
+    
+def switch_arit(case, valor_1, valor_2,):
+    sw_1 = {
+      1: suma(valor_1, valor_2),
+      2: resta(valor_1, valor_2),
+      3: multiplicacion(valor_1, valor_2),
+      4: division(valor_1, valor_2),
+      5: exponenciacion(valor_1,valor_2),
+    }
+    return sw_1.get(case, default())
+
+def switch_tri(case, x):
+    sw_2 = {
+      6: seno(x),
+      7: coseno(x),
+      8: tangente(x)
+    }
+    return sw_2.get(case, default())
+
+def menu():
+    print("----------- Calculadora -----------")
+    print("\t1.- Suma")
+    print("\t2.- Resta")
+    print("\t3.- Multiplicacion")
+    print("\t4.- Division")
+    print("\t5.- Exponenciacion")
+    print("\t6.- Seno")
+    print("\t7.- Coseno")
+    print("\t8.- Tangente")
+    print("-----------------------------------")
+#llamada a la funcion menu--------------
+menu()
+case = int(input("Seleccione una opcion: "))
+if(case==6 or case==7 or case==8):
+    x = float(input("Ingrese valor en grado para el argumento de entrada de la función: "))
+    op_tri = switch_tri(case,x)
+    print(op_tri)
+else:
+    valor_1 = float(input("Primer valor: "))
+    valor_2 = float(input("Segundo valor: "))
+    op_arit = switch_arit(case, valor_1, valor_2) # objeto el cual realiza la llamada  a la funcion switch
+    print(op_arit)
+#End of code for version 12.2
+
+
+
+#Code for version 12.3
+import numpy as np
+#Operaciones Aritmeticas--------------------
+suma = lambda valor_1, valor_2 : valor_1 + valor_2
+resta = lambda valor_1, valor_2 : valor_1 - valor_2
+mult = lambda valor_1,valor_2 : valor_1 * valor_2
+div = lambda valor_1, valor_2 : valor_1 / valor_2
+exp = lambda valor_1,valor_2 : valor_1 ** valor_2
+
+def default():
+     return "Opcion Invalida"
+    
+def switch_arit(case, valor_1, valor_2,):
+    sw_1 = {
+      1: suma(valor_1, valor_2),
+      2: resta(valor_1, valor_2),
+      3: mult(valor_1, valor_2),
+      4: div(valor_1, valor_2),
+      5: exp(valor_1, valor_2)
+    }
+    return sw_1.get(case, default())
+
+def menu():
+    print("----------- Calculadora -----------")
+    print("\t1.- Suma")
+    print("\t2.- Resta")
+    print("\t3.- Multiplicacion")
+    print("\t4.- Division")
+    print("\t5.- Exponenciacion")
+    print("-----------------------------------")
+#llamada a la funcion menu--------------
+menu()
+# Variables.....................................
+case = int(input("Seleccione una opcion: "))
+valor_1 = float(input("Primer valor: "))
+valor_2 = float(input("Segundo valor: "))
+# Objeto----------------------------------------
+op_arit = switch_arit(case, valor_1, valor_2) # objeto el cual realiza la llamada  a la funcion switch
+print(op_arit)
+#End of code for version 12.3
