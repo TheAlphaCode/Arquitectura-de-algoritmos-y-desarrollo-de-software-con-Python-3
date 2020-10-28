@@ -1,0 +1,74 @@
+#Variables
+cantidad_analgesicos, cantidad_antialergicos, cantidad_nacionales, cantidad_importados = 0,0,0,0
+promedio_analgesicos, promedio_antialergicos,promedio_nacionales, promedio_importados  = 0,0,0,0
+ 
+for i in range (1,3):
+    print ('Ingreso producto: ' + str(i))
+    precio = float (input ('Ingrese el valor de precio del farmaco: '))
+    print ('Seleccione el valor de tipo.')
+    print ('\t1.- Analgésicos')
+    print ('\t2.- Antialérgicos')
+    tipo = 0
+    while tipo<1 or tipo>2:
+        tipo = int (input (': '))
+        if tipo<1 or tipo>2:
+            print('Valor incorrecto. Intente nuevamente.')
+    print ('Seleccione procedencia: ')
+    print ('\t1.- Nacional')
+    print ('\t2.- Importado')
+    procedencia = 0
+    while procedencia<1 or procedencia>2:
+        procedencia = int (input (': '))
+        if procedencia<1 or procedencia>2:
+            print('Valor incorrecto. Intente nuevamente.')
+    if tipo == 1:
+        promedio_analgesicos = promedio_analgesicos + precio
+        cantidad_analgesicos +=1
+    elif tipo == 2:
+        promedio_antialergicos = promedio_antialergicos + precio
+        cantidad_antialergicos += 1
+    #Condicional para determinar si es nacional o importado el farmaco
+    if procedencia==1:
+        promedio_nacionales=promedio_nacionales+precio
+        cantidad_nacionales +=1
+    elif procedencia == 2:
+        promedio_importados = promedio_importados + precio
+        cantidad_importados += 1
+"""Forma 1"""       
+# Se coloca el bloque try catch sino genera un error de ZeroDivisionError
+try:
+    promedio_analgesicos = promedio_analgesicos/cantidad_analgesicos
+except:
+    promedio_analgesicos = 0
+# Condicional if de una linea promedio analgesicos 
+promedio_analgesicos = 0 if cantidad_analgesicos == 0 else promedio_analgesicos
+"""Fin Forma 1"""
+
+"""Forma 2 tradicional """
+#Condicionales  cantidad antialergicos    
+if cantidad_antialergicos == 0:
+    promedio_antialergicos = 0
+else:
+    promedio_antialergicos = promedio_antialergicos/cantidad_antialergicos
+
+#Condicionales promedio nacionales   
+if cantidad_nacionales == 0:
+    promedio_nacionales = 0
+else:
+    promedio_nacionales=promedio_nacionales/cantidad_nacionales
+    
+#Condicionales promedio importados
+if cantidad_importados == 0:
+    promedio_importados = 0
+else:
+    promedio_importados = promedio_importados/cantidad_importados
+"""Fin Forma 2 tradicional """ 
+
+print ('Cantidad Analgésicos: {}'.format(cantidad_analgesicos))
+print ('Cantidad Antialérgicos: {}'.format(cantidad_antialergicos))
+print ('Cantidad Nacionales: {}'.format(cantidad_nacionales))
+print ('Cantidad Importados: {}'.format(cantidad_importados))
+print ('Promedio Analgésicos: {}'.format(promedio_analgesicos))
+print ('Promedio Antialérgicos: {}'.format(promedio_antialergicos))
+print ('Promedio Nacionales: {}'.format(promedio_nacionales))
+print ('Promedio Importados: {}'.format(promedio_importados))
