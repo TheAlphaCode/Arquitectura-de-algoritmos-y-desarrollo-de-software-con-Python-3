@@ -1,0 +1,31 @@
+import math 
+
+def verificador_impar_primo():
+    n = int(input('Ingrese el numero a verificar: '))
+    rimp = impar(n)
+    if rimp == 1:
+        rprimo = primo(n)
+        if rprimo == 1:
+            print('\nEl numero: {} es impar y es primo'.format(n))
+        else:
+            print('\nEl numero: {} es impar y no es primo'.format(n))
+    else:
+        print('\nEl numero: {} no es impar'.format(n))
+    
+def impar(n):
+    if(n % 2 != 0):
+        return 1
+    else:
+        return 0
+
+def primo(n):
+    swp = 1
+    i = 2
+    while(swp == 1 and i <= math.sqrt(n)):
+        if(n % i == 0):
+            swp = 0
+        i = i + 1
+    if swp == 1:
+        return 1
+    else:
+        return 0
