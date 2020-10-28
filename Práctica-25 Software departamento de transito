@@ -1,0 +1,76 @@
+accidentes = 0 #Variables
+a = 0
+b = 0
+c = 0
+d = 0
+tecla_repetir = str('s')#......................
+while tecla_repetir == 's' or tecla_repetir =='S': # Ciclo principal mientras la respuesta sea s ingresara
+    edad = int(input('Ingrese el valor de edad: '))
+    print ('Ingrese el tipo de genero: ')
+    print ('\t1.- Hombre')
+    print ('\t2.- Mujer')
+    sexo = 0
+    while sexo < 1 or sexo > 2: # Ciclo de control interno respecto a la variable sexo
+        sexo = int (input (': '))
+        if sexo < 1 or sexo > 2:
+            print('Valor incorrecto intente nuevamente')
+    print ('Seleccione la carretera: ')
+    print ('\t1.- Interestatal 5')
+    print ('\t2.- Interestatal 80')
+    print ('\t3.- Ruta Estatal 99')
+    print ('\t4.- U.S. Route 50')
+    print ('\t5.- Ruta Estatal 16')
+    print ('\t6.- Ruta Estatal 70')
+    print ('\t7.- Ruta Estatal 160')
+    carretera = 0
+    while carretera < 1 or carretera > 7: # Ciclo de control interno respecto a la variable carretera
+        carretera = int(input (': '))
+        if carretera < 1 or carretera > 7:
+            print('Valor incorrecto intente nuevamente')
+    print ('Seleccione el valor de estado conductor.')
+    print ('\t1.- Ebrio')
+    print ('\t2.- Sobrio')
+    estado_conductor = 0
+    while estado_conductor < 1 or estado_conductor > 2: # Ciclo de control interno respecto a la variable estado_conductor
+        estado_conductor = int(input (': '))
+        if estado_conductor < 1 or estado_conductor > 2:
+            print('Valor incorrecto intente nuevamente')
+    accidentes = accidentes + 1
+    
+    if sexo == 1:
+        a = a + 1 # Sumatoria respecto variable sexo = hombre
+    if carretera == 3:
+        b = b + 1 # Sumatoria respecto variable carretera = Ruta Estatal 99 
+    if estado_conductor == 1:
+        c = c + 1 # Sumatoria respecto variable estado_conductor = ebrio
+    if edad < 18:
+        d = d + 1 # Sumatoria respecto variable edad < 18
+    print ('Desea repetir el proceso? (S/N): ')
+    print ('\t1.- S')
+    print ('\t2.- N')
+    tecla_repetir = []
+    while tecla_repetir !='s' and tecla_repetir !='n': # Ciclo de controlo para la respeusta del usuario de continuar
+        tecla_repetir = str(input(': '))
+        if tecla_repetir != 's' and tecla_repetir != 'n':
+            print('Valor incorrecto intente nuevamente')    
+if accidentes == 0:
+    a = 0
+else:
+    a=100.0*a/accidentes # Calculo del promedio en forma de porcentaje
+if accidentes == 0:
+    b = 0
+else:
+    b=100.0*b/accidentes # Calculo del promedio en forma de porcentaje
+if accidentes == 0:
+    c = 0
+else:
+    c=100.0*c/accidentes # Calculo del promedio en forma de porcentaje
+if accidentes == 0:
+    d = 0
+else:
+    d=100.0*d/accidentes # Calculo del promedio en forma de porcentaje
+print ('Accidentes totales: {}'.format(accidentes))
+print ('Porcentaje de accidentes ocasionados por hombres: {}%'.format(a))
+print ('Porcentaje de accidentes ocurridos en la Ruta Estatal 99: {}%'.format(b))
+print ('Porcentaje de accidentes en estado de ebriedad: {}%'.format(c))
+print ('Porcentaje de conductores menores de edad: {}%'.format(d))
