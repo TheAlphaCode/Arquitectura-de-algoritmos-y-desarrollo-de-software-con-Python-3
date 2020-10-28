@@ -1,0 +1,6 @@
+numero_servidores = int(input('Ingrese el numero de servidores de la red: '))
+
+for n in range(0, numero_servidores):
+    print('Para: {} servidores'.format(n))
+    C = (n * (n-1))/2
+    print('Existe un numero total de: {} conexiones'.format(C))
