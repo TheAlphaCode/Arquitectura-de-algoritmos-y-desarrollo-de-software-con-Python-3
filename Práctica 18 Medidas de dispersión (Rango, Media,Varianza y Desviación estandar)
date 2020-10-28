@@ -1,0 +1,33 @@
+import numpy as np
+# Variables
+n = int(input('Ingrese la cantidad de datos: '))
+suma_datos = 0
+varianza = 0
+rango = [] #--> Lista vacia para almacenar los datos ingresados
+
+for i in range(n): # Ciclo de control de ingreso y precalculo de datos:
+    dato = int(input('Ingrese el dato: '))
+    rango.append(dato)
+    suma_datos += dato
+    varianza = varianza + (dato * dato)
+    
+"""Calculo del rango"""   
+valor_maximo, valor_minimo =  max(rango),min(rango)
+rango = valor_maximo - valor_minimo
+
+"""Calculo de la Media """
+media = suma_datos / n
+
+""" Calculo de la varianza """
+varianza = ((varianza/n)-media*media)
+
+""" Calculo de desviacion estandar """
+std = np.sqrt(varianza)
+"""Impresiones de los resultados obtenidos """
+print('\nEl Rango de la serie de datos es: {}'.format(rango))
+print("-------------")
+print('La Media de los datos es: {}'.format(media))
+print("-------------")
+print('La Varianza de los datos es: {}'.format(varianza))
+print("-------------")
+print('La Desviacion estandar de los datos es: {}'.format(std))
