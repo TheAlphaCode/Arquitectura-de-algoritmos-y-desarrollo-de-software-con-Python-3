@@ -1,0 +1,15 @@
+import numpy as np
+print('\nIngrese los valores de los coeficientes de la ecuacion cuadratica: ')
+a = float(input('Ingrese el valor del coeficiente a: '))
+b = float(input('Ingrese el valor del coeficiente b: '))
+c = float(input('Ingrese el valor del coeficiente c: '))
+
+Discriminante = (b*b)-(4*a*c)
+
+if Discriminante >= 0:
+    R1 = (b + np.sqrt(Discriminante))/(2*a)
+    R2 = (b - np.sqrt(Discriminante))/(2*a)
+    print('Las raices con los coeficientes: a = {}, b = {}, c ={}'.format(a,b,c))
+    print('Son las siguientes: Raiz 1 = {}, Raiz 2 = {}'.format(R1,R2))
+else:
+    print('La raices calculadas son imaginarias')
