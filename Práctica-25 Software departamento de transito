@@ -9,7 +9,7 @@ while tecla_repetir == 's' or tecla_repetir =='S': # Ciclo principal mientras la
     print ('Ingrese el tipo de genero: ')
     print ('\t1.- Hombre')
     print ('\t2.- Mujer')
-    sexo = 0
+    sexo = 0 
     while sexo < 1 or sexo > 2: # Ciclo de control interno respecto a la variable sexo
         sexo = int (input (': '))
         if sexo < 1 or sexo > 2:
