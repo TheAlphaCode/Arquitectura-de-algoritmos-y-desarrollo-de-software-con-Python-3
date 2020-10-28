@@ -1,0 +1,89 @@
+# Codigo A)
+import numpy as np
+
+l = int(input('Ingrese la longitud del vector: ')) # Variable que controla la longitud del vector
+x = np.empty(shape=(0,0)) # Se crea la matriz vacia
+
+def crear_vector(x,l):
+    for i in range(l):
+        a = float(input('Ingrese digito en el vector: ')) # ingresa el digito en el vector 
+        x = append(x, a) #Adiciona el valor ingresado por consola de la linea anterior al vector
+    leer_vector(x) # llamada a la funcion leer_vector
+        
+def leer_vector(x):
+    print('\n')
+    for i in range(len(x)):
+        print('En la posicion '+str(i+1)+' se encuentra el valor: ',x[i])
+
+crear_vector(x,l) # Llamada a la funcion crear vector
+
+
+#Codigo B)
+import numpy as np
+
+l = int(input('Ingrese longitud del vector: '))
+x = np.empty(shape=(0,0))
+key = float(input('\nIngrese el valor de la llave a buscar en el vector: '))
+
+print('\n')
+def buscador_llave_vector(x,l,key):
+    swe = 0
+    for i in range(l):
+        a = float(input('Ingrese un digito para el vector: '))
+        x = append(x, a)
+        if x[i] == key:
+            swe = 1
+            pos = i+1
+
+    if swe == 1:
+        print('\nEl elemento: {} se encuentra en la posicion {}'.format(key, pos))
+    else:
+        print('\nEl elemento: {} no se encuentra dentro del vector.'.format(key))
+
+buscador_llave_vector(x,l,key)
+
+
+#Codigo C)
+#Variables del programa
+filas_a = int(input('Ingrese el numero de filas de la matriz A : '))
+columnas_a = int(input('Ingrese el numero de columnas de la matriz A : '))
+filas_b = int(input('Ingrese el numero de filas de la matriz B : '))
+columnas_b = int(input('Ingrese el nuemro de columnas de la matriz B : '))
+
+if filas_a < 1 or columnas_a < 1 or filas_b < 1 or columnas_b <1 or columnas_a != filas_b:
+    print('La matrices no se pueden multiplicar intente nuevamente.')        
+else:
+     #- Lista vacia a, Lista vacia b, Lista vacia c --> resultante de la multiplicacion de a x b
+    a, b, c = [], [], []
+    print('\t') 
+    """Inicio del ciclo para llenar los elementos de la matriz a """
+    for i in range(filas_a):
+        a.append([]) #--> Crea elementos o posiciones vacias en la matriz a
+        for j in range (columnas_a):
+            a[i].append(float(input('Ingrese el elemento A['+str(i)+']['+str(j)+']: ')))# Llena los elementos de la matriz a
+    """Fin para llenar los elementos de la matriz a """
+    print('')    
+    """Inicio para llenar los elementos de la matriz b """
+    for i in range(filas_b):
+        b.append([]) #--> Crea elementos o posiciones vacias en la matriz b
+        for j in range (columnas_b):
+            b[i].append(float(input('Ingrese el elemento B['+str(i)+']['+str(j)+']: ')))# Llena los elementos de la matriz b
+    """Fin para llenar los elementos de la matriz b """
+    
+    """Inicio del ciclo de calculo de los elementos de la matriz resultante c: a x b """
+    for i in range(filas_a):
+        c.append([])
+        for j in range(columnas_b):
+            c[i].append(0)
+            for k in range(filas_b):
+                c[i][j] = a[i][j] * b[i][j]
+    """Fin del ciclo de calculo de los elementos de la matriz resultante c: a x b """    
+ 
+    """Inicio del ciclo de impresion de la matriz resultante c """ 
+    print('\nResultado:')
+    print('\n[----Matriz '+ str(filas_a)+ 'x'+str(columnas_b)+'----]')
+    for elemento in c:
+        e = str(elemento)
+        print('-----'+e+'-----')        
+    print('[----Matriz '+ str(filas_a)+ 'x'+str(columnas_b)+'----]')
+    """Fin del ciclo de impresion de la matriz resultante c """    
