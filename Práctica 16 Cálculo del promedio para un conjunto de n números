@@ -1,0 +1,15 @@
+n = int(input('Ingrese la cantidad del conjunto de numeros: '))
+suma = 0 # Se inicializa en 0 la suma para el promedio 
+   
+def calculo_promedio(n,suma): # fUncion que se encarga del calculo del promedio, y el ingreso de los datos 
+    
+    for i in range(1,n+1): # Bucle de control
+        num = float(input('Ingrese el numero: '))
+        print(('El numero: {} es parte del conjunto para el promedio').format(num))
+        suma = suma + num
+    promedio = suma / n # Calculo del promedio 
+    return promedio
+
+calculo = calculo_promedio(n,suma) # Objeto
+
+print('El valor del promedio del conjunto de numeros es: {}'.format(calculo))
