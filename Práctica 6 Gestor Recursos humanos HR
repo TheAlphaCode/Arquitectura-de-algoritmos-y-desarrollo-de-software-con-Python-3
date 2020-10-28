@@ -1,0 +1,29 @@
+numero_empleados = int(input('Ingrese el numero de empleados: '))
+
+def generar_ficha_empleados(numero_empleados):
+    empleados_area_operaciones = 0
+    empleados_area_administrativa = 0
+    mayor_edad = 0
+    promedio_sueldos = 0
+    for empleado in range(1, numero_empleados+1):
+        print ('\nFicha empleado: ' + repr(empleado))
+        nombre=str(input('Ingrese nombre del empleado '))
+        edad= int(input('Ingrese edad '))
+        sueldo = float(input('Ingrese sueldo '))
+        area_trabajo = str(input('Ingrese area de trabajo '))
+        antiguedad = int(input('Ingrese antigüedad en la empresa '))
+        promedio_sueldos= promedio_sueldos + sueldo
+        if mayor_edad < edad:
+            mayor_edad = edad
+        if(area_trabajo == "administrativa"):
+            empleados_area_administrativa = empleados_area_administrativa + 1
+        if(area_trabajo == "operaciones"):
+            empleados_area_operaciones = empleados_area_operaciones + 1
+        print('\nPara la ficha {}, el empleado: {}, tiene: {} año(s) en la empresa'.format(empleado, nombre, antiguedad))
+        
+    promedio_sueldos = promedio_sueldos/numero_empleados
+    print('\nTotal promedio de sueldos: {}'.format(promedio_sueldos))
+    print('Total de empleados del area administrativa: {}'.format(empleados_area_administrativa))
+    print('Total de empleados del area operaciones {}'.format(empleados_area_operaciones))
+    print('El empleado de mayor edad en la empresa tiene: {} años'.format(mayor_edad))
+ficha_noviembre = generar_ficha_empleados(numero_empleados)   
