@@ -1,0 +1,36 @@
+#Code for version 4.1
+Pi = 3.1416
+r = float(input('Ingrese el valor del radio de la figura: '))
+h = float(input('Ingrese el valor de la altura de la figura: '))
+
+V = (1/3*Pi*r*r)*h
+
+ATC = (Pi*r*h) + (Pi*r*r)
+
+print('\nEl volumen del cono calculado es de: {}'.format(V))
+print('\nEl área total de superficie del cono es: {}'.format(ATC))
+
+
+#Code for version 4.2
+Pi = 3.1416
+
+r = float(input('Ingrese el valor del radio de la figura: '))
+h = float(input('Ingrese el valor de la altura de la figura: '))
+
+def calculo_volumen_cono(Pi,r,h):
+    if (r==0 or h==0):
+        print('Lo sentimos el Radio y la altura del cilindro deben ser mayores a 0')
+    else:
+        return (1/3*Pi*r*r)*h
+    
+def calculo_area_total_cono(Pi,r,h):
+    if(r==0 or h==0):
+        print('Lo sentimos el Radio y la altura del cilindro deben ser mayores a 0')
+    else:
+        return (Pi*r*h)+(Pi*r*r)
+
+V = calculo_volumen_cono(Pi, r,h)
+ATC = calculo_area_total_cono(Pi, r,h)
+
+print('\nEl volumen del cono calculado es de: {}'.format(V))
+print('El área total de superficie del cono es: {}'.format(ATC))
