@@ -1,0 +1,11 @@
+n = float(input('\nIngrese el numero: '))
+valor_absoluto = 0
+
+if (n > 0):
+    valor_absoluto = n
+    print('Para el numero ingresado: {}'.format(n))
+    print('El valor absoluto es: {}'.format(valor_absoluto))
+else:
+    print('Para el numero ingresado: {}'.format(n))
+    valor_absoluto = (-1*n)
+    print('El valor absoluto es: {}'.format(valor_absoluto))
